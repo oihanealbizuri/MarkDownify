@@ -22,7 +22,7 @@ export default function Home() {
     const handleCursorChange = () => {
         const textarea = inputRef.current;
         if (textarea) {
-            const lines = textarea.value.substr(0, textarea.selectionStart).split('\n');
+            const lines = textarea.value.slice(0, textarea.selectionStart).split('\n');
             setCursorLine(lines.length);
         }
     };
