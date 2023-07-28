@@ -67,23 +67,23 @@ export default function Home() {
                 <div>
                     <h2 className="text-lg font-semibold mb-2">Input (Markdown)</h2>
                     <textarea
-                        ref={inputRef}
+                        ref={ inputRef }
                         className="w-full h-96 resize-none p-2 border rounded-md text-black"
-                        value={markdownText}
-                        onChange={handleMarkdownChange}
+                        value={ markdownText }
+                        onChange={ handleMarkdownChange }
                     />
                 </div>
                 <div>
                     <h2 className="text-lg font-semibold mb-2">Output (Formatted Text)</h2>
                     <div
                         className="w-full h-96 resize-none p-2 border rounded-md overflow-y-auto"
-                        style={{ fontSize: '16px' }}
-                        dangerouslySetInnerHTML={{ __html: htmlOutput }}
+                        style={ { fontSize: '16px' } }
+                        dangerouslySetInnerHTML={ { __html: htmlOutput } }
                     />
                 </div>
             </div>
-            <p>Current cursor line: {cursorLine}</p>
-            <p>Equivalent line in the output: {findEquivalentLine()}</p>
+            <p>Current cursor line: { cursorLine }</p>
+            <p>Equivalent line in the output: { findEquivalentLine() }</p>
         </div>
     );
 }
