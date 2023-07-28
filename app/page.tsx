@@ -42,27 +42,9 @@ export default function Home() {
         };
     }, []);
 
-    // Function to calculate the equivalent line number in the output div
-    const findEquivalentLine = (): number => {
-        const lines = markdownText.split('\n');
-        let renderedLines = 0;
-
-        for (let i = 0; i < lines.length; i++) {
-            const markedHtml = marked(lines[i]);
-            // Count the number of lines in the rendered HTML
-            renderedLines += (markedHtml.match(/<p>/g) || []).length + 1; // Add 1 for the current line
-            if (renderedLines >= cursorLine) {
-                return i + 1; // Return the equivalent line number in the output div
-            }
-        }
-
-        // If cursorLine is greater than the total rendered lines, return the last line number
-        return lines.length;
-    };
-
     return (
         <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-semibold mb-4">Markdown to Formatted Text Converter</h1>
+            <h1 className="text-2xl font-semibold mb-4">MarkDownify</h1>
             <div className="grid grid-cols-2 gap-4">
                 <div>
                     <h2 className="text-lg font-semibold mb-2">Input (Markdown)</h2>
@@ -83,7 +65,6 @@ export default function Home() {
                 </div>
             </div>
             <p>Current cursor line: { cursorLine }</p>
-            <p>Equivalent line in the output: { findEquivalentLine() }</p>
         </div>
     );
 }
