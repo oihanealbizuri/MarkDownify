@@ -1,18 +1,18 @@
 "use client" // to ensure this code runs on the client-side
-import { useEffect, useState, useRef, ChangeEvent } from 'react';
+import React, {
+    useEffect,
+    useState,
+    useRef,
+    ChangeEvent
+} from 'react';
 import { marked } from 'marked';
 import './page.css';
 
 export default function Home() {
     const [markdownText, setMarkdownText] = useState<string>('');
     const [htmlOutput, setHtmlOutput] = useState<string>('');
-    const [cursorLine, setCursorLine] = useState<number>(1); // State to keep track of the cursor line
+    const [cursorLine, setCursorLine] = useState<number>(1);
     const inputRef = useRef<HTMLTextAreaElement>(null);
-
-    useEffect(() => {
-        const markedHtml = marked(markdownText);
-        setHtmlOutput(markedHtml);
-    }, [markdownText]);
 
     const handleMarkdownChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
         const mdText = event.target.value;
@@ -42,9 +42,14 @@ export default function Home() {
         };
     }, []);
 
+    useEffect(() => {
+        const markedHtml = marked(markdownText);
+        setHtmlOutput(markedHtml);
+    }, [markdownText]);
+
     return (
         <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-semibold mb-4">MarkDownify</h1>
+            <h1 className="text-2xl font-semibold mb-8">MarkDownify</h1>
             <div className="grid grid-cols-2 gap-4">
                 <div>
                     <h2 className="text-lg font-semibold mb-2">Input (Markdown)</h2>
