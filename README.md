@@ -56,3 +56,5 @@ Contributions to this project are welcome! Feel free to open issues for bug repo
 ## License
 
 This project is licensed under the [GNU General Public License v3.0](LICENSE). You are free to use, modify, and distribute the code as per the terms of the GNU GPL v3.0.
+
+![visitors](https://api.visitorbadge.io/api/visitors?path=oihanealbizuri%2FMarkDownify&countColor=%23263759)
